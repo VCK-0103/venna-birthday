@@ -1,10 +1,346 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy Birthday Venna Akka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Veena Sri ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffe6f0,#fffafc);
+overflow-x:hidden;
+text-align:center;
+color:#333;
+}
+
+.page{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.hidden{
+display:none;
+}
+
+h1{
+font-size:3rem;
+color:#ff4f87;
+}
+
+h2{
+margin:15px;
+}
+
+p{
+max-width:700px;
+line-height:1.8;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:#ff4f87;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.envelope{
+width:280px;
+height:180px;
+background:white;
+position:relative;
+cursor:pointer;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+border-radius:10px;
+}
+
+.flap{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff8fb1;
+clip-path:polygon(0 0,100% 0,50% 60%);
+}
+
+.letter{
+position:absolute;
+top:65%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:24px;
+}
+
+.album{
+max-width:350px;
+}
+
+.album img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.caption{
+margin-top:15px;
+font-size:18px;
+}
+
+.controls button{
+margin:10px;
+padding:10px 20px;
+}
+
+.letter-card{
+background:white;
+padding:30px;
+border-radius:25px;
+max-width:700px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.final{
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+50%{transform:translateY(-10px);}
+}
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
+
+.hearts span{
+position:absolute;
+bottom:-50px;
+font-size:20px;
+animation:rise 10s linear infinite;
+}
+
+@keyframes rise{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+</style>
 </head>
-<body style="text-align:center; font-family:Arial; margin-top:100px;">
-<h1>🎂 Happy Birthday Venna Akka ❤️</h1>
-<p>From Your Brother 💖</p>
+
+<body>
+
+<div class="hearts">
+<span style="left:10%">❤️</span>
+<span style="left:25%">🌸</span>
+<span style="left:40%">❤️</span>
+<span style="left:60%">🌷</span>
+<span style="left:80%">❤️</span>
+</div>
+
+<!-- PAGE 1 -->
+<section class="page" id="welcome">
+
+<h1>🎂 Happy Birthday</h1>
+<h2>Veena Sri ❤️</h2>
+
+<p>
+A small surprise made with love for the most caring sister.
+</p>
+
+<button class="btn" onclick="openEnvelope()">
+Open Your Gift 🎁
+</button>
+
+</section>
+
+<!-- PAGE 2 -->
+<section class="page hidden" id="envelopePage">
+
+<div class="envelope" onclick="showAlbum()">
+<div class="flap"></div>
+<div class="letter">💌 Open Me</div>
+</div>
+
+<p style="margin-top:30px">
+Tap the envelope
+</p>
+
+</section>
+
+<!-- PAGE 3 -->
+<section class="page hidden" id="albumPage">
+
+<h2>📸 Memories Album</h2>
+
+<div class="album">
+
+<img id="albumImage" src="1000079285.jpg">
+
+<div class="caption" id="caption">
+Your beautiful smile lights up every moment ❤️
+</div>
+
+</div>
+
+<div class="controls">
+<button onclick="prevSlide()">⬅</button>
+<button onclick="nextSlide()">➡</button>
+</div>
+
+<button class="btn" onclick="showLetter()">
+Read Letter 💌
+</button>
+
+</section>
+
+<!-- PAGE 4 -->
+<section class="page hidden" id="letterPage">
+
+<div class="letter-card">
+
+<h2>Dear Veena Sri ❤️</h2>
+
+<p>
+
+Happy Birthday! 🎂✨
+
+<br><br>
+
+Today is your special day and I want to thank you for all the love,
+care and happiness you bring into our lives.
+
+<br><br>
+
+You are strong, kind and always supportive.
+Your smile brightens every moment and your presence makes our family complete.
+
+<br><br>
+
+May this year bring you success,
+good health,
+joy,
+peace,
+and beautiful memories.
+
+<br><br>
+
+Thank you for being such an amazing sister.
+
+❤️ With Love ❤️
+
+<br><br>
+
+Your Brother KANNA ❤️
+
+</p>
+
+<button class="btn" onclick="showFinal()">
+Final Surprise 🎁
+</button>
+
+</div>
+
+</section>
+
+<!-- PAGE 5 -->
+<section class="page hidden" id="finalPage">
+
+<h1 class="final">
+🎉 HAPPY BIRTHDAY 🎉
+</h1>
+
+<h2>VEENA SRI ❤️</h2>
+
+<p>
+May all your dreams come true.<br>
+May happiness always stay with you.<br>
+May your life be filled with love, success and beautiful memories.
+</p>
+
+<h1 style="margin-top:30px">🎂🌸❤️</h1>
+
+</section>
+
+<!-- Music -->
+<audio autoplay loop controls style="position:fixed;bottom:10px;right:10px">
+<source src="ReelAudio-25155.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const images = [
+"1000079285.jpg",
+"1000079218.jpg",
+"1000078825.jpg"
+];
+
+const captions = [
+"Your beautiful smile lights up every moment ❤️",
+"Traditional elegance and grace 🌸",
+"Always caring, strong and inspiring 💕"
+];
+
+let current = 0;
+
+function openEnvelope(){
+document.getElementById("welcome").classList.add("hidden");
+document.getElementById("envelopePage").classList.remove("hidden");
+}
+
+function showAlbum(){
+document.getElementById("envelopePage").classList.add("hidden");
+document.getElementById("albumPage").classList.remove("hidden");
+}
+
+function nextSlide(){
+current=(current+1)%images.length;
+updateSlide();
+}
+
+function prevSlide(){
+current=(current-1+images.length)%images.length;
+updateSlide();
+}
+
+function updateSlide(){
+document.getElementById("albumImage").src=images[current];
+document.getElementById("caption").innerText=captions[current];
+}
+
+function showLetter(){
+document.getElementById("albumPage").classList.add("hidden");
+document.getElementById("letterPage").classList.remove("hidden");
+}
+
+function showFinal(){
+document.getElementById("letterPage").classList.add("hidden");
+document.getElementById("finalPage").classList.remove("hidden");
+}
+
+</script>
+
 </body>
 </html>
