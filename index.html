@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,6 +20,7 @@ text-align:center;
 color:#333;
 }
 
+/* Pages */
 .page{
 min-height:100vh;
 display:flex;
@@ -29,24 +30,17 @@ align-items:center;
 padding:30px;
 }
 
-.hidden{
-display:none;
-}
+.hidden{ display:none; }
 
-h1{
-font-size:3rem;
-color:#ff4f87;
-}
-
-h2{
-margin:15px;
-}
+h1{ font-size:3rem; color:#ff4f87; }
+h2{ margin:15px; }
 
 p{
 max-width:700px;
 line-height:1.8;
 }
 
+/* Button */
 .btn{
 padding:14px 28px;
 border:none;
@@ -58,6 +52,7 @@ cursor:pointer;
 margin-top:20px;
 }
 
+/* Envelope */
 .envelope{
 width:280px;
 height:180px;
@@ -84,9 +79,8 @@ transform:translate(-50%,-50%);
 font-size:24px;
 }
 
-.album{
-max-width:350px;
-}
+/* Album */
+.album{ max-width:350px; }
 
 .album img{
 width:100%;
@@ -94,6 +88,7 @@ height:450px;
 object-fit:cover;
 border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:opacity 0.3s;
 }
 
 .caption{
@@ -101,11 +96,7 @@ margin-top:15px;
 font-size:18px;
 }
 
-.controls button{
-margin:10px;
-padding:10px 20px;
-}
-
+/* Letter */
 .letter-card{
 background:white;
 padding:30px;
@@ -114,6 +105,7 @@ max-width:700px;
 box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
+/* Final animation */
 .final{
 animation:float 3s infinite ease-in-out;
 }
@@ -122,6 +114,7 @@ animation:float 3s infinite ease-in-out;
 50%{transform:translateY(-10px);}
 }
 
+/* Hearts background */
 .hearts{
 position:fixed;
 width:100%;
@@ -138,12 +131,26 @@ animation:rise 10s linear infinite;
 }
 
 @keyframes rise{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
+}
+
+/* ❤️ Explosion hearts */
+.heart{
+position:fixed;
+font-size:22px;
+pointer-events:none;
+animation:explode 1.5s ease-out forwards;
+z-index:9999;
+}
+
+@keyframes explode{
 0%{
-transform:translateY(0);
+transform:translate(0,0) scale(1);
 opacity:1;
 }
 100%{
-transform:translateY(-120vh);
+transform:translate(var(--x),var(--y)) scale(1.8);
 opacity:0;
 }
 }
@@ -162,47 +169,28 @@ opacity:0;
 
 <!-- PAGE 1 -->
 <section class="page" id="welcome">
-
 <h1>🎂 Happy Birthday</h1>
 <h2>Veena Sri ❤️</h2>
-
-<p>
-A small surprise made with love for the most caring sister.
-</p>
-
-<button class="btn" onclick="openEnvelope()">
-Open Your Gift 🎁
-</button>
-
+<p>A small surprise made with love for the most caring sister.</p>
+<button class="btn" onclick="openEnvelope()">Open Your Gift 🎁</button>
 </section>
 
 <!-- PAGE 2 -->
 <section class="page hidden" id="envelopePage">
-
 <div class="envelope" onclick="showAlbum()">
 <div class="flap"></div>
 <div class="letter">💌 Open Me</div>
 </div>
-
-<p style="margin-top:30px">
-Tap the envelope
-</p>
-
+<p style="margin-top:30px">Tap the envelope</p>
 </section>
 
 <!-- PAGE 3 -->
 <section class="page hidden" id="albumPage">
-
 <h2>📸 Memories Album</h2>
 
 <div class="album">
-
-<img id="albumImage" src="1000079285.jpg">
-
-<div class="caption" id="caption">
-Your beautiful smile lights up every moment ❤️
-</div>
-
+<img id="albumImage">
+<div class="caption" id="caption"></div>
 </div>
 
 <div class="controls">
@@ -210,78 +198,38 @@ Your beautiful smile lights up every moment ❤️
 <button onclick="nextSlide()">➡</button>
 </div>
 
-<button class="btn" onclick="showLetter()">
-Read Letter 💌
-</button>
-
+<button class="btn" onclick="showLetter()">Read Letter 💌</button>
 </section>
 
 <!-- PAGE 4 -->
 <section class="page hidden" id="letterPage">
-
 <div class="letter-card">
-
 <h2>Dear Veena Sri ❤️</h2>
 
 <p>
-
-Happy Birthday! 🎂✨
-
-<br><br>
-
-Today is your special day and I want to thank you for all the love,
-care and happiness you bring into our lives.
-
-<br><br>
-
-You are strong, kind and always supportive.
-Your smile brightens every moment and your presence makes our family complete.
-
-<br><br>
-
-May this year bring you success,
-good health,
-joy,
-peace,
-and beautiful memories.
-
-<br><br>
-
-Thank you for being such an amazing sister.
-
-❤️ With Love ❤️
-
-<br><br>
-
+Happy Birthday! 🎂✨<br><br>
+You are kind, strong, and amazing.<br><br>
+May your life be full of happiness and success.<br><br>
+❤️ With Love ❤️<br><br>
 Your Brother KANNA ❤️
-
 </p>
 
-<button class="btn" onclick="showFinal()">
-Final Surprise 🎁
-</button>
-
+<button class="btn" onclick="showFinal()">Final Surprise 🎁</button>
 </div>
-
 </section>
 
 <!-- PAGE 5 -->
 <section class="page hidden" id="finalPage">
-
-<h1 class="final">
-🎉 HAPPY BIRTHDAY 🎉
-</h1>
-
+<h1 class="final">🎉 HAPPY BIRTHDAY 🎉</h1>
 <h2>VEENA SRI ❤️</h2>
 
 <p>
 May all your dreams come true.<br>
 May happiness always stay with you.<br>
-May your life be filled with love, success and beautiful memories.
+May your life be filled with love ❤️
 </p>
 
 <h1 style="margin-top:30px">🎂🌸❤️</h1>
-
 </section>
 
 <!-- Music -->
@@ -290,13 +238,11 @@ May your life be filled with love, success and beautiful memories.
 </audio>
 
 <script>
-
 const images = [
-  "./IMG-20260327-WA0058.jpg",
-  "./IMG-20260327-WA0059.jpg",
-  "./Picsart_26-03-27_00-45-19-768.jpg"
+"IMG-20260327-WA0058.jpg",
+"IMG-20260327-WA0059.jpg",
+"Picsart_26-03-27_00-45-19-768.jpg"
 ];
-
 
 const captions = [
 "Your beautiful smile lights up every moment ❤️",
@@ -314,21 +260,24 @@ document.getElementById("envelopePage").classList.remove("hidden");
 function showAlbum(){
 document.getElementById("envelopePage").classList.add("hidden");
 document.getElementById("albumPage").classList.remove("hidden");
+
+current = 0;
+updateSlide();
 }
 
 function nextSlide(){
-current=(current+1)%images.length;
+current = (current + 1) % images.length;
 updateSlide();
 }
 
 function prevSlide(){
-current=(current-1+images.length)%images.length;
+current = (current - 1 + images.length) % images.length;
 updateSlide();
 }
 
 function updateSlide(){
-document.getElementById("albumImage").src=images[current];
-document.getElementById("caption").innerText=captions[current];
+document.getElementById("albumImage").src = images[current];
+document.getElementById("caption").innerText = captions[current];
 }
 
 function showLetter(){
@@ -339,8 +288,32 @@ document.getElementById("letterPage").classList.remove("hidden");
 function showFinal(){
 document.getElementById("letterPage").classList.add("hidden");
 document.getElementById("finalPage").classList.remove("hidden");
+
+heartExplosion();
 }
 
+/* ❤️ Heart explosion */
+function heartExplosion(){
+const hearts = ["❤️","💖","💗","💞","💕"];
+
+for(let i=0;i<40;i++){
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
+
+document.body.appendChild(heart);
+
+const x = (Math.random()-0.5)*600 + "px";
+const y = (Math.random()-0.5)*600 + "px";
+
+heart.style.left = "50%";
+heart.style.top = "50%";
+heart.style.setProperty("--x", x);
+heart.style.setProperty("--y", y);
+
+setTimeout(()=>heart.remove(),1500);
+}
+}
 </script>
 
 </body>
